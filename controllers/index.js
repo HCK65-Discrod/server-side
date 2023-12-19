@@ -9,4 +9,13 @@ module.exports = class Controller {
       res.status(500).json(error)
     }
   } 
+  
+  static async login(req, res) {
+    try {
+      await User.findOne()
+      res.status(200).json({ message: "Login Success" })      
+    } catch (error) {
+      res.status(500).json({ message: "Internal Server Error" })
+    }
+  }
 }
